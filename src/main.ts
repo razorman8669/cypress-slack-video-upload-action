@@ -65,6 +65,7 @@ async function run(): Promise<void> {
 
     const githubServerUrl = process.env.GITHUB_SERVER_URL || ''
     const githubRepository = process.env.GITHUB_REPOSITORY || ''
+    const githubCommitSha = process.env.GITHUB_SHA || ''
     const githubRunID = process.env.GITHUB_RUN_ID || ''
 
     if (action === 'start') {
@@ -97,6 +98,10 @@ async function run(): Promise<void> {
                   {
                     type: 'mrkdwn',
                     text: `*Author:* @${author}`
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: `*Commit:* <${githubServerUrl}/${githubRepository}/commit/${githubCommitSha}|${githubCommitSha}>`
                   }
                 ]
               }
@@ -141,6 +146,10 @@ async function run(): Promise<void> {
                   {
                     type: 'mrkdwn',
                     text: `*Author:* @${author}`
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: `*Commit:* <${githubServerUrl}/${githubRepository}/commit/${githubCommitSha}|${githubCommitSha}>`
                   }
                 ]
               }
