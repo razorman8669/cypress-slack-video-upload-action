@@ -76,7 +76,7 @@ But if your project uses Cypress in a sub-folder (like most mono-repos), you'll 
 ---
 jobs:
   - name: 'Start thread in slack'
-    uses: razorman8669/cypress-slack-video-upload-action@v1
+    uses: razorman8669/cypress-slack-video-upload-action@v1.1
     id: start
     with:
       token: ${{ secrets.SLACK_TOKEN }}
@@ -89,7 +89,7 @@ jobs:
     uses: cypress-io/github-action@v5
 
   - name: 'Update thread in slack'
-    uses: razorman8669/cypress-slack-video-upload-action@v1
+    uses: razorman8669/cypress-slack-video-upload-action@v1.1
     if: always()
     with:
       token: ${{ secrets.SLACK_TOKEN }}
@@ -101,7 +101,7 @@ jobs:
       status: ${{ job.status }}
 
   - name: 'Upload screenshots and videos to Slack'
-    uses: razorman8669/cypress-slack-video-upload-action@v1
+    uses: razorman8669/cypress-slack-video-upload-action@v1.1
     if: failure()
     with:
       token: ${{ secrets.SLACK_TOKEN }}
