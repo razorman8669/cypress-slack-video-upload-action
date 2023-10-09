@@ -26,8 +26,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@slack/web-api": "^6.8.1",
+    "@actions/core": "^1.10.1",
+    "@slack/web-api": "^6.9.0",
     "walk-sync": "^3.0.0"
   },
   "devDependencies": {
@@ -45,6 +45,6 @@
     "js-yaml": "^4.1.0",
     "prettier": "^3.0.0",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   }
 }
