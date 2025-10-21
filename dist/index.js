@@ -74,7 +74,7 @@ function run() {
             const author = core.getInput('author');
             const screenshotsDir = core.getInput('screenshots') || 'cypress/screenshots';
             const videosDir = core.getInput('videos') || 'cypress/videos';
-            const messageText = core.getInput('message-text').slice(0, 150);
+            const messageText = core.getInput('message-text').slice(0, 138);
             const previousMsgThreadId = core.getInput('thread-id') || '';
             core.info(`Action: ${action}`);
             core.info(`Channel: ${channel}`);
@@ -106,10 +106,12 @@ function run() {
             if (action === 'start') {
                 const result = yield slack.chat.postMessage({
                     channel: channelID,
+                    text: `:rocket: ${messageText}`,
                     link_names: true,
                     attachments: [
                         {
                             color: '#f2c744',
+                            fallback: `:rocket: ${messageText}`,
                             blocks: [
                                 {
                                     type: 'header',
@@ -154,11 +156,13 @@ function run() {
                 const statusIcon = runStatus === 'success' ? ':ok_hand:' : ':poop:';
                 yield slack.chat.update({
                     channel: channelID,
+                    text: `${statusIcon} ${messageText}`,
                     link_names: true,
                     ts: previousMsgThreadId,
                     attachments: [
                         {
                             color: statusColor,
+                            fallback: `${statusIcon} ${messageText}`,
                             blocks: [
                                 {
                                     type: 'header',
